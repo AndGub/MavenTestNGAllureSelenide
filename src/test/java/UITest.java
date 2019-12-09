@@ -1,20 +1,26 @@
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Condition.*;
 
+@Feature("sdadsasd")
 public class UITest {
 
     String baseurl = "http://www.pchelovod.info/";
 
+    @Story("adsadsad")
     @Test
     void registrationWrongPass() {
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide().savePageSource(false).screenshots(true));
         open(baseurl);
         $(By.linkText("Вход")).click();
-        $(By.name("UserName")).setValue("User123456");
-        $(By.name("PassWord")).setValue("1234567");
-        $(By.name("submit")).click();
-        $(By.xpath("//span[@class='postcolor']")).shouldHave(text("Неверный пароль. Все пароли чувствительны к регистру"));
+//        $(By.name("UserName")).setValue("User123456");
+//        $(By.name("PassWord")).setValue("1234567");
+//        $(By.name("submit")).click();
+//        $(By.xpath("//span[@class='postcolor']")).shouldHave(text("Неверный пароль. Все пароли чувствительны к регистру"));
 
     }
 
