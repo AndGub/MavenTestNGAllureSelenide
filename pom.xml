@@ -70,6 +70,7 @@
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
+                <version>2.10.0</version>
                 <configuration>
                     <reportVersion>2.7.0</reportVersion>
                     <allureDownloadUrl>https://dl.bintray.com/qameta/maven/io/qameta/allure/allure-commandline/2.13.0/allure-commandline-2.13.0.zip</allureDownloadUrl>

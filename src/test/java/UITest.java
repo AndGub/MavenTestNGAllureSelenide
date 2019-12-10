@@ -2,6 +2,7 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.Feature;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.openqa.selenium.By;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -12,10 +13,14 @@ public class UITest {
 
     String baseurl = "http://www.pchelovod.info/";
 
-    @Test
-    void registrationWrongPass() {
+    @BeforeTest
+    void beforeTest() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(false));
         open(baseurl);
+    }
+
+    @Test
+    void registrationWrongPass() {
         $(By.linkText("Вход")).click();
         $(By.name("UserName")).setValue("User123456");
         $(By.name("PassWord")).setValue("1234567");
@@ -25,8 +30,6 @@ public class UITest {
 
     @Test
     void registrationWrongUser() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(false));
-        open(baseurl);
         $(By.linkText("Вход")).click();
         $(By.name("UserName")).setValue("User12345");
         $(By.name("PassWord")).setValue("1234567");
@@ -36,8 +39,6 @@ public class UITest {
 
     @Test
     void registrationWrongUserFailing() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(false));
-        open(baseurl);
         $(By.linkText("Вход")).click();
         $(By.name("UserName")).setValue("User12345");
         $(By.name("PassWord")).setValue("1234567");
@@ -47,8 +48,6 @@ public class UITest {
 
     @Test
     void registrationPositive() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(false));
-        open(baseurl);
         $(By.linkText("Вход")).click();
         $(By.name("UserName")).setValue("User123456");
         $(By.name("PassWord")).setValue("123456");
